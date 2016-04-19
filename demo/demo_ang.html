@@ -1,0 +1,70 @@
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="css/demo.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body ng-app="MyModule" ng-cloak ng-controller="MyCtrl">
+    <div ng-cloak id="register"  ng-hide="gshare.registered">
+    <h3>Demo implemented with Angular</h3> 
+    <ol>
+      <li>Open this demo page twice. E.g. from two different devices (PC, Mobile)</li>
+      <li>Create a group in one of them and join the group with the other</li>
+      <li>Note that you share the data between the two clients and that group data is avaliable even when a client goes offline</li>
+    </ol>
+        <h1>Registration</h1>
+        Resgistration enable group sharing. 
+        <p>
+        <label>Group Name (3 or more a-z letters)</label>
+        <input type="submit" value="Create" ng-click="gshare.create()" />
+        <input type="text" placeholder="E.g. xyz" ng-model="gshare.name"/>
+        <p>
+        <label>Group Name &amp; Code</label>
+        <input type="submit" value="Join"  ng-click="gshare.join()" />
+        <input type="text" placeholder="Group's Name" ng-model="gshare.name"/>
+        <input type="text" placeholder="Group's Code" ng-model="gshare.code"/>
+    </div>
+    <div ng-cloak id="myApp"  ng-show="gshare.registered">
+        <h3>Example MyApp Code (Angular)</h3> 
+        <h1>Group Sharing App</h1>
+        Add PC/mobile clients to group.<p>
+        <h3>Group: {{gshare.name}}</h3>
+        <h3>Code: <label>{{gshare.code}} </label></h3>
+        <input type="submit" value="Group Code" ng-click="gshare.getGroupCode()" />
+        <input type="submit" value="Reset" ng-click="reset();" />
+        <p>Participants:
+        <div>
+            <ol id="names">
+                <li ng-repeat="(key, value) in everyone">
+                    <label >{{value}}</label>
+                </li>
+            </ol>
+            <input type="text" placeholder="Your name" ng-model="myname" />
+            <input type="submit" value="Set Name" ng-click="everyone[myid] = myname;" />
+            <h3>Shared Message: <label>{{message}}</label></h3>
+            <textarea ng-model="message"></textarea>
+            <h3>Shared Items List:</h3>
+            <ol id="scores">
+                <li ng-repeat="score in scores">
+                    <label ng-style="{color:score.color}">{{score.name}}</label>
+                </li>
+            </ol>
+            <input type="text" placeholder="Name" ng-model="name"/>
+            <select ng-init="color = 'Orange'" ng-model="color">
+                <option>Orange</option>
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Green</option>
+            </select> <br>
+            <input type="submit" value="Submit" ng-click="scores.push({name: name, color:color})" />
+            <input type="submit" value="Clear" ng-click="scores.length = 0"/>
+        </div><p>
+        Change the Shared Message &amp; Item List :)<p>
+        ***This trial is bandwidth limited (per group limits).<Br>
+        The more you use the slower client synchronization becomes. <p>  
+        Register at <a href="http://www.zLineup.com">www.zLineup.com</a> to get a free Group-Share account.
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.js"></script>
+    <script type="text/javascript" src="../js/current/gs.js"></script>
+    <script type="text/javascript" src="demo_ang.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="css/demo.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+    <div id="register">
+    <h3>Demo implemented with Javascript</h3> 
+    <ol>
+      <li>Open this demo page twice. E.g. from two different devices (PC, Mobile)</li>
+      <li>Create a group in one of them and join the group with the other</li>
+      <li>Note that you share the data between the two clients and that group data is avaliable even when a client goes offline</li>
+    </ol>
+        <h1>Registration</h1>
+        Resgistration enable group sharing. 
+        <p>
+        <label>Group Name (3 or more a-z letters)</label>
+        <input type="submit" value="Create" onclick="gshare.create()" />
+        <input type="text" placeholder="E.g. xyz" id="gshare_name1"/>
+        <p>
+        <label>Group Name &amp; Code</label>
+        <input type="submit" value="Join"  onclick="gshare.join()" />
+        <input type="text" placeholder="Group's Name" id="gshare_name2"/>
+        <input type="text" placeholder="Group's Code" id="gshare_code2"/>
+    </div>
+    <div id="myApp">
+        <h3>Example MyApp Code (Javascript)</h3> 
+        <h1>Group Sharing App</h1>
+        Add PC/mobile clients to group.<p>
+        <h3>Group: <label id="gshare_name3"></label></h3>
+        <h3>Code: <label id= "gshare_code3"></label></h3>
+        <input type="submit" value="Group Code" onclick="gshare.getGroupCode()" />
+        <input type="submit" value="Reset" onclick="$scope.reset();" />
+        <p>Participants:
+        <div>
+            <ol id="names">
+            </ol>
+            <input type="text" placeholder="Your name" id="myname" />
+            <input type="submit" value="Set Name" onclick="add_name()" />
+            <h3>Shared Message: <label id="message_display"></label></h3>
+            <textarea id="message"></textarea>
+            <h3>Shared Items List:</h3>
+            <ol id="scores">
+            </ol>
+            <input type="text" placeholder="Name" id="name"/>
+            <select id="color" selected="selected">
+                <option>Orange</option>
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Green</option>
+            </select> <br>
+            <input type="submit" value="Submit" onclick="add_score()" />
+            <input type="submit" value="Clear" onclick="clear_scores()"/>
+        </div><p>
+        Change the Shared Message &amp; Item List :)<p>
+        ***This trial is bandwidth limited (per group limits).<Br>
+        The more you use the slower client synchronization becomes. <p>  
+        Register at <a href="http://www.zLineup.com">www.zLineup.com</a> to get a free Group-Share account.
+    </div>
+    <script type="text/javascript" src="../js/current/gs.js"></script>
+    <script type="text/javascript" src="demo_javascript.js"></script>
+</body>
+</html>
